@@ -1,5 +1,5 @@
 # Stage 1: Build the React/TypeScript project
-FROM node:18 AS build
+FROM node:20 AS build
 
 # Set the working directory
 WORKDIR /app
