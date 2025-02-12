@@ -1,0 +1,38 @@
+name: Deploy React/TypeScript App
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-and-deploy:
+    runs-on: self-hosted
+    env:
+      VITE_JSONBIN_BIN_ID: ${{ secrets.VITE_JSONBIN_BIN_ID }}
+      VITE_JSONBIN_MASTER_KEY: ${{ secrets.VITE_JSONBIN_MASTER_KEY }}
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Generate image name with date
+        id: image_name
+        run: |
+          CURRENT_DATE=$(date +"%Y-%m-%d_%H-%M-%S")
+          echo "image_name=procv-nginx-$CURRENT_DATE" >> $GITHUB_OUTPUT
+
+      - name: Build Docker image
+        env:
+          VITE_JSONBIN_BIN_ID: ${{ secrets.VITE_JSONBIN_BIN_ID }}
+          VITE_JSONBIN_MASTER_KEY: ${{ secrets.VITE_JSONBIN_MASTER_KEY }}
+        run: docker build -t ${{ steps.image_name.outputs.image_name }} .
+
+      - name: Stop and remove existing container
+        run: |
+          if [ $(docker ps -a -q -f name=procv-nginx) ]; then
+            docker rm -f procv-nginx
+          fi
+
+      - name: Run Docker container
+        run: docker run -d -p 80:80 --name procv-nginx ${{ steps.image_name.outputs.image_name }}
