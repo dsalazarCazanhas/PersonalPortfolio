@@ -44,7 +44,7 @@ jobs:
         env:
           VITE_JSONBIN_BIN_ID: ${{ secrets.VITE_JSONBIN_BIN_ID }}
           VITE_JSONBIN_MASTER_KEY: ${{ secrets.VITE_JSONBIN_MASTER_KEY }}
-        run: docker buildx build -t ${{ steps.image_name.outputs.image_name }} .
+        run: docker build -t ${{ steps.image_name.outputs.image_name }} .
 
       - name: Stop and remove existing container
         run: |
