@@ -4,6 +4,7 @@
 # Allow specific files and directories
 !package.json
 !package-lock.json
+!pnpm-lock.yaml
 !tsconfig.json
 !vite.config.ts
 !public/
