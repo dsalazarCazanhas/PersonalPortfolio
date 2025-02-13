@@ -16,29 +16,11 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: 20
-
-      - name: Install dependencies
-        run: npm install
-
-      - name: Build project
-        run: npm run build
-
-      - name: Debug file structure
-        run: |
-          ls -R
-
       - name: Generate image name with date
         id: image_name
         run: |
           CURRENT_DATE=$(date +"%Y-%m-%d_%H-%M-%S")
           echo "image_name=procv-nginx-$CURRENT_DATE" >> $GITHUB_OUTPUT
-
-      - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v3
 
       - name: Build Docker image
         env:

@@ -13,9 +13,6 @@ RUN npm install
 # Copy the rest of the application code (including the client directory)
 COPY . .
 
-# Debug: List files to verify the client directory is copied
-RUN ls -R /app
-
 # Build the project
 RUN npm run build
 
