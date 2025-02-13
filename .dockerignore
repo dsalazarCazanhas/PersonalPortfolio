@@ -1,20 +1,5 @@
-# Ignore all files by default
-*
-
-# Allow specific files and directories
-!package.json
-!package-lock.json
-!pnpm-lock.yaml
-!tsconfig.json
-!vite.config.ts
-!public/
-!src/
-!.dockerignore
-!Dockerfile
-
 # Exclude development and build artifacts
 node_modules/
-dist/
 build/
 .cache/
 .temp/
