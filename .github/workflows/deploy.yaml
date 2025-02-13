@@ -27,9 +27,6 @@ jobs:
       - name: Build project
         run: npm run build
 
-      - name: Palapingabro
-        run: ls -la
-
       - name: Generate image name with date
         id: image_name
         run: |

@@ -2,7 +2,7 @@
 FROM nginx:1.27.4
 
 # Copy the built artifacts from the workflow
-COPY dist/public /usr/share/nginx/html
+COPY ./dist /usr/share/nginx/html
 
 # Expose port 80
 EXPOSE 80
