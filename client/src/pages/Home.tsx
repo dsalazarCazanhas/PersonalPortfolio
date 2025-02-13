@@ -126,7 +126,7 @@ export default function Home() {
           </div>
           <SocialLinks
             email={cv.contact}
-            linkedinUrl="https://www.linkedin.com/in/yourusername"
+            linkedinUrl="https://www.linkedin.com/in/dsalazarcazanhas1012"
             onCopyEmail={handleCopyContact}
             copySuccess={copySuccess}
           />
