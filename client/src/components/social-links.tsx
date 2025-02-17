@@ -5,11 +5,18 @@ import { Button } from "@/components/ui/button";
 interface SocialLinksProps {
   email: string;
   linkedinUrl: string;
+  githubUrl: string;
   onCopyEmail: () => void;
   copySuccess: boolean;
 }
 
-export function SocialLinks({ email, linkedinUrl, onCopyEmail, copySuccess }: SocialLinksProps) {
+export function SocialLinks({
+  email,
+  linkedinUrl,
+  githubUrl,
+  onCopyEmail,
+  copySuccess,
+}: SocialLinksProps) {
   return (
     <div className="flex">
       <div className="flex items-center gap-2 text-muted-foreground group">
@@ -41,6 +48,16 @@ export function SocialLinks({ email, linkedinUrl, onCopyEmail, copySuccess }: So
         style={{ height: 50, width: 50 }}
       />
       <span className="sr-only">LinkedIn Profile</span>
+      <SocialIcon
+        network="github"
+        url={githubUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        bgColor="transparent"
+        fgColor="hsl(var(--muted-foreground))"
+        style={{ height: 50, width: 50 }}
+      />
+      <span className="sr-only">Github Profile</span>
     </div>
   );
 }

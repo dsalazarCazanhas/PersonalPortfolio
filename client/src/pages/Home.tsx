@@ -1,15 +1,14 @@
-
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef } from "react";
 import { Separator } from "@/components/ui/separator";
 import { Badge } from "@/components/ui/badge";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Card, CardContent } from "@/components/ui/card";
 import { ThemeSwitcher } from "@/components/theme-switcher";
 import { SocialLinks } from "@/components/social-links";
-import { fetchCV } from '@/lib/api';
-import { CV } from '@/lib/types';
-import { TypeAnimation } from 'react-type-animation';
-
+import { fetchCV } from "@/lib/api";
+import { CV } from "@/lib/types";
+import { TypeAnimation } from "react-type-animation";
+import CredlyBadge from "@/components/credly-badge";
 
 const JSONBIN_BIN_ID = import.meta.env.VITE_JSONBIN_BIN_ID;
 const JSONBIN_API_KEY = import.meta.env.VITE_JSONBIN_MASTER_KEY;
@@ -17,13 +16,13 @@ const JSONBIN_API_KEY = import.meta.env.VITE_JSONBIN_MASTER_KEY;
 export default function Home() {
   const [copySuccess, setCopySuccess] = useState(false);
   const [cv, setCV] = useState<CV>({
-    name: '',
-    title: '',
-    about: '',
-    contact: '',
+    name: "",
+    title: [],
+    about: "",
+    contact: { email: "", linkedin: "", github: "" },
     experience: [],
     education: [],
-    skills: []
+    skills: [],
   });
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -35,7 +34,7 @@ export default function Home() {
         setCV(data);
       } catch (err) {
         console.error(err);
-        setError('Failed to load CV data');
+        setError("Failed to load CV data");
       } finally {
         setLoading(false);
       }
@@ -45,7 +44,7 @@ export default function Home() {
   }, []);
 
   const handleCopyContact = () => {
-    navigator.clipboard.writeText(cv.contact);
+    navigator.clipboard.writeText(cv.contact.email);
     setCopySuccess(true);
     setTimeout(() => setCopySuccess(false), 2000);
   };
@@ -96,7 +95,11 @@ export default function Home() {
   }
 
   if (error) {
-    return <div className="min-h-screen bg-background p-6 flex items-center justify-center text-red-500">{error}</div>;
+    return (
+      <div className="min-h-screen bg-background p-6 flex items-center justify-center text-red-500">
+        {error}
+      </div>
+    );
   }
 
   return (
@@ -105,18 +108,10 @@ export default function Home() {
       <div className="max-w-4xl mx-auto space-y-8">
         <div className="space-y-4">
           <h1 className="text-4xl font-bold">{cv.name}</h1>
-          <div className='mt-2'>
+          <div className="mt-2">
             <TypeAnimation
               sequence={[
-                // Same substring at the start will only be typed out once, initially
-                `${cv.title}`,
-                2000, // wait 2s
-                'CyberSec Analyst',
-                2000,
-                'Tech Advisor',
-                2000,
-                'Freelancer',
-                3000
+                ...cv.title.flatMap((title) => [title, 3000]), // Loop through all titles with 3s delay each
               ]}
               wrapper="span"
               speed={50}
@@ -125,8 +120,9 @@ export default function Home() {
             />
           </div>
           <SocialLinks
-            email={cv.contact}
-            linkedinUrl="https://www.linkedin.com/in/dsalazarcazanhas1012"
+            email={cv.contact.email}
+            linkedinUrl={cv.contact.linkedin}
+            githubUrl={cv.contact.github}
             onCopyEmail={handleCopyContact}
             copySuccess={copySuccess}
           />
@@ -143,7 +139,10 @@ export default function Home() {
 
         <h2 className="text-2xl font-semibold mb-4">Experience</h2>
         {cv.experience.map((exp, index) => (
-          <section key={index} className="rounded-lg border bg-card text-card-foreground shadow-sm p-6 mb-4">
+          <section
+            key={index}
+            className="rounded-lg border bg-card text-card-foreground shadow-sm p-6 mb-4"
+          >
             <p className="text-muted-foreground">{exp}</p>
           </section>
         ))}
@@ -152,22 +151,15 @@ export default function Home() {
 
         <h2 className="text-2xl font-semibold mb-4">Education</h2>
         {cv.education.map((edu, index) => (
-          <section key={index} className="rounded-lg border bg-card text-card-foreground shadow-sm p-6 mb-4">
+          <section
+            key={index}
+            className="rounded-lg border bg-card text-card-foreground shadow-sm p-6 mb-4"
+          >
             <p className="text-muted-foreground">{edu}</p>
           </section>
         ))}
         <Card className="mb-4">
-          <CardContent className="pt-6">
-            <p className="text-muted-foreground mb-2">Linux Essential Certificate - Linux Professional Institute (LPI) - 2023</p>
-            <div
-              data-iframe-width="150"
-              data-iframe-height="270"
-              data-share-badge-id="c5cc1127-4b0f-4eac-8083-2e8006c46b32"
-              data-share-badge-host="https://www.credly.com"
-              className="flex justify-center"
-            />
-            <script async src="//cdn.credly.com/assets/utilities/embed.js"></script>
-          </CardContent>
+          <CredlyBadge />
         </Card>
 
         <Separator className="my-6" />
@@ -176,9 +168,19 @@ export default function Home() {
         <section className="rounded-lg border bg-card text-card-foreground shadow-sm p-6">
           <div className="flex flex-wrap gap-2">
             {cv.skills.map((skill, index) => (
-              <Badge key={index} variant="secondary">{skill}</Badge>
+              <Badge key={index} variant="secondary">
+                {skill}
+              </Badge>
             ))}
           </div>
+        </section>
+
+        <Separator className="my-6" />
+
+        <h1 className="text-2xl font-semibold mb-4">PS.</h1>
+        <section className="rounded-lg border text-muted-foreground bg-card shadow-sm p-6">
+          This webpage is Self-Hosted using Ngrok+React in a docker stack in
+          Proxmox VE and builded using Github CI/CD.
         </section>
       </div>
     </div>
