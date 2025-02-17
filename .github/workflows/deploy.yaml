@@ -46,4 +46,4 @@ jobs:
           fi
 
       - name: Run Docker container
-        run: docker run -d -p 8090:80 --name procv-nginx --network majula -v /home/artorias/WebPages/nginx.conf:/etc/nginx/nginx.conf.d/default.conf ${{ steps.image_name.outputs.image_name }}
+        run: docker run -d -p 8090:80 --name procv-nginx --network majula --restart unless-stopped -v /home/artorias/WebPages/nginx.conf:/etc/nginx/nginx.conf.d/default.conf ${{ steps.image_name.outputs.image_name }}
