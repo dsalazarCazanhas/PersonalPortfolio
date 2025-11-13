@@ -155,7 +155,7 @@ export default function Home() {
             key={index}
             className="rounded-lg border bg-card text-card-foreground shadow-sm p-6 mb-4"
           >
-            <p className="text-muted-foreground">{edu}</p>
+            <p className="text-muted-foreground">{edu.name}</p>
           </section>
         ))}
         <Card className="mb-4">
@@ -173,14 +173,6 @@ export default function Home() {
               </Badge>
             ))}
           </div>
-        </section>
-
-        <Separator className="my-6" />
-
-        <h1 className="text-2xl font-semibold mb-4">PS.</h1>
-        <section className="rounded-lg border text-muted-foreground bg-card shadow-sm p-6">
-          This webpage is Self-Hosted using Ngrok+React in a docker stack in
-          Proxmox VE and builded using Github CI/CD.
         </section>
       </div>
     </div>

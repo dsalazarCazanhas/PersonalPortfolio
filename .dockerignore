@@ -3,7 +3,6 @@ node_modules/
 build/
 .cache/
 .temp/
-.env
 .env.local
 .env.development
 .env.test
@@ -13,6 +12,11 @@ build/
 .git/
 .gitignore
 .gitattributes
+
+ngrok.yml
+Dockerfile
+docker-compose.yml
+.github/
 
 # Exclude IDE and editor files
 .vscode/

@@ -12,12 +12,18 @@ export interface Contact {
   github: string;
 }
 
+export interface Education {
+  name: string;
+  badge: boolean;
+  loader: string;
+}
+
 export interface CV {
   name: string;
   title: string[];
   about: string;
   contact: Contact;
   experience: string[];
-  education: string[];
+  education: Education[];
   skills: string[];
 }

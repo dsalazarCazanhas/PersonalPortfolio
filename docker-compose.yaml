@@ -1,0 +1,38 @@
+name: personalPortfolio
+services:
+  procv:
+    image: procv:1.0
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        - VITE_JSONBIN_BIN_ID=${VITE_JSONBIN_BIN_ID}
+        - VITE_JSONBIN_MASTER_KEY=${VITE_JSONBIN_MASTER_KEY}
+    env_file:
+      - .env
+    container_name: personalPortfolio
+    restart: unless-stopped
+
+  ngrok:
+    image: ngrok/ngrok:latest
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "ngrok", "diagnose"]
+      interval: 40s
+      timeout: 20s
+      retries: 3
+    depends_on:
+      - procv
+    command:
+      - "start"
+      - "personalPortfolio"
+      - "--config"
+      - "/etc/ngrok.yml"
+    volumes:
+      - ./ngrok.yml:/etc/ngrok.yml
+    environment:
+      - NGROK_AUTH_TOKEN=${NGROK_AUTH_TOKEN}
+    env_file:
+      - .env
+    ports:
+      - "4040:4040"
