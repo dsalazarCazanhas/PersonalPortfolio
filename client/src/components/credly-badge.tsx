@@ -1,6 +1,10 @@
 import { useEffect } from "react";
 
-const CredlyBadge = () => {
+interface CredlyBadgeProps {
+  badgeId: string;
+}
+
+const CredlyBadge = ({ badgeId }: CredlyBadgeProps) => {
   useEffect(() => {
     const script = document.createElement("script");
     script.src = "https://cdn.credly.com/assets/utilities/embed.js";
@@ -15,7 +19,7 @@ const CredlyBadge = () => {
     <div
       data-iframe-width="150"
       data-iframe-height="270"
-      data-share-badge-id="c5cc1127-4b0f-4eac-8083-2e8006c46b32"
+      data-share-badge-id={badgeId}
       data-share-badge-host="https://www.credly.com"
     ></div>
   );

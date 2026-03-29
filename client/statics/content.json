@@ -1,0 +1,87 @@
+{
+  "name": "Dayron Salazar Cazañas",
+  "title": [
+    "Computer Science Engineer",
+    "CyberSec Analyst",
+    "Tech Advisor",
+    "Freelancer"
+  ],
+  "contact": {
+    "email": "dsalazarcazanhas@gmail.com",
+    "linkedin": "https://www.linkedin.com/in/dsalazarcazanhas1012",
+    "github": "https://github.com/dsalazarCazanhas"
+  },
+  "about": "Is my professional purpose to grow up in computer science matters. Python programming, AI, LM, Big Data, Machine Learning; DevOps/Deployer; Cybersecurity, particularly in Red Team, Ethical Hacking, Pentesting and Security-Oriented Programming.",
+  "experience": [
+    "Software Development Specialist at Universidad de las Ciencias Informáticas (2020-2021) - Develop web based applications for information management.",
+    "Cybersecurity Analyst and Head of the Security Operations Center at Empresa de las Tecnologías de la Información de Biocubafarma (2021-2024) - Incidents analisys and response, member of the company's CSIRT and led a group of 5 specialists"
+  ],
+  "education": [
+    {
+      "name": "Graduate in English Language, Escuela de Idiomas “Tamara Bunke”, Havana, Cuba - (2018)",
+      "badge": false,
+      "loader": ""
+    },
+    {
+      "name": "Bachelor’s Degree in Computer Science Engineering, Universidad de las Ciencias Informáticas, Havana, Cuba - (2020)",
+      "badge": false,
+      "loader": ""
+    },
+    {
+      "name": "Linux Essential Certificate - Linux Professional Institute (LPI) - (2023)",
+      "badge": true,
+      "loader": "c5cc1127-4b0f-4eac-8083-2e8006c46b32"
+    },
+    {
+      "name": "Python for Data Science - IBM - (2025)",
+      "badge": true,
+      "loader": "630b684d-15f9-4c2f-8464-08fae4ee8e60"
+    }
+  ],
+  "skills": [
+    "Python",
+    "Security-Oriented Programming",
+    "API Development",
+    "Red Team",
+    "Pentesting",
+    "Digital Forensics",
+    "Incident Response",
+    "OSSIM Alienvault",
+    "Wazuh",
+    "PFsense",
+    "Greylog",
+    "CheckMK",
+    "FTK Imager",
+    "Autopsy",
+    "Sysmon",
+    "NxLog",
+    "Web & Services Security",
+    "Testing Environment Deployment",
+    "Linux Administration",
+    "Windows",
+    "Proxmox",
+    "VMWare ESXI",
+    "VMWare Workstation",
+    "VirtualBox",
+    "Docker",
+    "Docker-Compose",
+    "Docker-Swarm",
+    "Elasticsearch",
+    "Kibana",
+    "Logstash",
+    "JSON",
+    "Spring Boot",
+    "Git",
+    "Postman",
+    "Visual Studio Code",
+    "Nginx",
+    "Project Leadership",
+    "SCRUM",
+    "Time Management",
+    "Teamwork",
+    "Open to Different Perspectives",
+    "Problem-Solving",
+    "Critical Thinking",
+    "Proactive Attitude"
+  ]
+}
