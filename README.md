@@ -1,6 +1,5 @@
 # Personal Portfolio
 
-[![Deploy](https://github.com/dsalazarCazanhas/PersonalPortfolio/actions/workflows/deploy.yaml/badge.svg)](https://github.com/dsalazarCazanhas/PersonalPortfolio/actions/workflows/deploy.yaml)
 ![React](https://img.shields.io/badge/React_18-20232A?style=flat-square&logo=react&logoColor=61DAFB)
 ![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&logo=typescript&logoColor=white)
 ![Vite](https://img.shields.io/badge/Vite-646CFF?style=flat-square&logo=vite&logoColor=white)
