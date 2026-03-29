@@ -1,9 +1,11 @@
-import { Switch, Route } from "wouter";
+import { Switch, Route, Router as WouterRouter } from "wouter";
 import { Toaster } from "@/components/ui/toaster";
 import NotFound from "@/pages/not-found";
 import Home from "@/pages/Home";
 
-function Router() {
+const BASE = import.meta.env.BASE_URL;
+
+function Routes() {
   return (
     <Switch>
       <Route path="/" component={Home} />
@@ -14,10 +16,10 @@ function Router() {
 
 function App() {
   return (
-    <>
-      <Router />
+    <WouterRouter base={BASE}>
+      <Routes />
       <Toaster />
-    </>
+    </WouterRouter>
   );
 }
 
