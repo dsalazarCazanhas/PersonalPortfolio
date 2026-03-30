@@ -71,7 +71,9 @@ export default function Home() {
             className="rounded-lg border bg-card text-card-foreground shadow-sm p-6 mb-4"
           >
             <p className="text-muted-foreground">{edu.name}</p>
-            {edu.badge && <CredlyBadge badgeId={edu.loader} />}
+            <div className="mt-4">
+              {edu.badge && <CredlyBadge badgeId={edu.loader} />}
+            </div>
           </section>
         ))}
 
