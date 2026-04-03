@@ -112,9 +112,3 @@ On every push to `main`, the workflow in [`.github/workflows/deploy.yaml`](.gith
 2. Builds the Vite app
 3. Builds a Docker image tagged with the current timestamp
 4. Replaces the running `procv-nginx` container in the `majula` Docker network
-
----
-
-## License
-
-MIT
