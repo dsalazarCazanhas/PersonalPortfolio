@@ -13,8 +13,46 @@
   },
   "about": "Is my professional purpose to grow up in computer science matters. Python programming, AI, LM, Big Data, Machine Learning; DevOps/Deployer; Cybersecurity, particularly in Red Team, Ethical Hacking, Pentesting and Security-Oriented Programming.",
   "experience": [
-    "Software Developer Specialist at Universidad de las Ciencias Informáticas (2020-2021) - Develop web based applications for information management.",
-    "Cybersecurity Analyst and Head of the Security Operations Center at Empresa de las Tecnologías de la Información de Biocubafarma (2021-2024) - Incidents analisys and response, member of the company's CSIRT and led a group of 5 specialists"
+    {
+      "role": "Cybersecurity Analyst & Head of the Security Operations Center",
+      "organization": "Empresa de las Tecnologías de la Información de Biocubafarma",
+      "start": "2021",
+      "end": "2024",
+      "description": "Incident analysis and response, member of the company's CSIRT, led a group of 5 specialists."
+    },
+    {
+      "role": "Software Developer Specialist",
+      "organization": "Universidad de las Ciencias Informáticas",
+      "start": "2020",
+      "end": "2021",
+      "description": "Developed web-based applications for information management."
+    }
+  ],
+  "projects": [
+    {
+      "name": "ecommerce-api",
+      "description": "The largest project so far: a FastAPI backend with JWT auth, cart/checkout flow, and Stripe integration (hosted checkout + webhook processing) on PostgreSQL/SQLModel. Validated end-to-end locally: login → cart → checkout → webhook → paid order.",
+      "stack": ["Python", "FastAPI", "SQLModel", "PostgreSQL", "Stripe", "JWT"],
+      "url": "https://github.com/dsalazarCazanhas/ecommerce-api"
+    },
+    {
+      "name": "Logpyre",
+      "description": "Lightweight log ingestion and search tool built on Flask and Elasticsearch. Born out of a real need for fast, portable log tracing during investigations — without depending on being physically in the lab to run heavier tools.",
+      "stack": ["Python", "Flask", "Elasticsearch", "Docker"],
+      "url": "https://github.com/dsalazarCazanhas/Logpyre"
+    },
+    {
+      "name": "filecrypt",
+      "description": "Standalone Python CLI to compress and encrypt/decrypt files and directories with AES-256-CBC, with key generation and a packaged standalone executable. One tool among several for automating secure backups in a closed environment.",
+      "stack": ["Python", "cryptography", "PyInstaller"],
+      "url": "https://github.com/dsalazarCazanhas/filecrypt"
+    },
+    {
+      "name": "OSSIM_backup",
+      "description": "Bash/cron automation to back up OSSIM AlienVault configurations to a bare-metal backup server, with a configurable connection protocol. Grew out of a concrete operational need during SOC work — a personal utility, not fully tested.",
+      "stack": ["Bash", "Cron"],
+      "url": "https://github.com/dsalazarCazanhas/OSSIM_backup"
+    }
   ],
   "education": [
     {
@@ -39,49 +77,69 @@
     }
   ],
   "skills": [
-    "Python",
-    "Security-Oriented Programming",
-    "API Development",
-    "Red Team",
-    "Pentesting",
-    "Digital Forensics",
-    "Incident Response",
-    "OSSIM Alienvault",
-    "Wazuh",
-    "PFsense",
-    "Greylog",
-    "CheckMK",
-    "FTK Imager",
-    "Autopsy",
-    "Sysmon",
-    "NxLog",
-    "Web & Services Security",
-    "Testing Environment Deployment",
-    "Linux Administration",
-    "Windows",
-    "Proxmox",
-    "VMWare ESXI",
-    "VMWare Workstation",
-    "VirtualBox",
-    "Docker",
-    "Docker-Compose",
-    "Docker-Swarm",
-    "Elasticsearch",
-    "Kibana",
-    "Logstash",
-    "JSON",
-    "Spring Boot",
-    "Git",
-    "Postman",
-    "Visual Studio Code",
-    "Nginx",
-    "Project Leadership",
-    "SCRUM",
-    "Time Management",
-    "Teamwork",
-    "Open to Different Perspectives",
-    "Problem-Solving",
-    "Critical Thinking",
-    "Proactive Attitude"
+    {
+      "category": "Offensive Security",
+      "items": ["Red Team", "Pentesting", "Security-Oriented Programming"]
+    },
+    {
+      "category": "Defensive / Blue Team",
+      "items": [
+        "Incident Response",
+        "Digital Forensics",
+        "OSSIM Alienvault",
+        "Wazuh",
+        "Sysmon",
+        "NxLog",
+        "FTK Imager",
+        "Autopsy",
+        "Web & Services Security"
+      ]
+    },
+    {
+      "category": "Platforms & Infrastructure",
+      "items": [
+        "Linux Administration",
+        "Windows",
+        "Proxmox",
+        "VMWare ESXI",
+        "VMWare Workstation",
+        "VirtualBox",
+        "PFsense",
+        "Nginx",
+        "Docker",
+        "Docker-Compose",
+        "Docker-Swarm",
+        "Testing Environment Deployment"
+      ]
+    },
+    {
+      "category": "Data & Observability",
+      "items": ["Elasticsearch", "Kibana", "Logstash", "CheckMK", "Greylog"]
+    },
+    {
+      "category": "Development",
+      "items": [
+        "Python",
+        "API Development",
+        "Spring Boot",
+        "JSON",
+        "Git",
+        "Postman",
+        "Visual Studio Code"
+      ]
+    },
+    {
+      "category": "Leadership & Soft Skills",
+      "items": [
+        "Project Leadership",
+        "SCRUM",
+        "Time Management",
+        "Teamwork",
+        "Open to Different Perspectives",
+        "Problem-Solving",
+        "Critical Thinking",
+        "Proactive Attitude"
+      ]
+    }
   ]
 }

@@ -18,12 +18,33 @@ export interface Education {
   loader: string;
 }
 
+export interface Experience {
+  role: string;
+  organization: string;
+  start: string;
+  end: string;
+  description: string;
+}
+
+export interface SkillGroup {
+  category: string;
+  items: string[];
+}
+
+export interface Project {
+  name: string;
+  description: string;
+  stack: string[];
+  url: string;
+}
+
 export interface CV {
   name: string;
   title: string[];
   about: string;
   contact: Contact;
-  experience: string[];
+  experience: Experience[];
+  projects: Project[];
   education: Education[];
-  skills: string[];
+  skills: SkillGroup[];
 }

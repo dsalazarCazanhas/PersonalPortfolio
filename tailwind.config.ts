@@ -5,6 +5,15 @@ export default {
   content: ["./client/index.html", "./client/src/**/*.{js,jsx,ts,tsx}"],
   theme: {
     extend: {
+      fontFamily: {
+        mono: [
+          "'JetBrains Mono'",
+          "ui-monospace",
+          "SFMono-Regular",
+          "Menlo",
+          "monospace",
+        ],
+      },
       borderRadius: {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
@@ -50,6 +59,20 @@ export default {
           "3": "hsl(var(--chart-3))",
           "4": "hsl(var(--chart-4))",
           "5": "hsl(var(--chart-5))",
+        },
+        status: {
+          ok: {
+            DEFAULT: "hsl(var(--status-ok))",
+            foreground: "hsl(var(--status-ok-foreground))",
+          },
+          warn: {
+            DEFAULT: "hsl(var(--status-warn))",
+            foreground: "hsl(var(--status-warn-foreground))",
+          },
+          crit: {
+            DEFAULT: "hsl(var(--status-crit))",
+            foreground: "hsl(var(--status-crit-foreground))",
+          },
         },
         sidebar: {
           DEFAULT: "hsl(var(--sidebar-background))",

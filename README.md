@@ -92,15 +92,35 @@ All CV data lives in [`client/statics/content.json`](client/statics/content.json
   "title": ["..."],
   "about": "...",
   "contact": { "email": "", "linkedin": "", "github": "" },
-  "experience": ["..."],
+  "experience": [
+    {
+      "role": "...",
+      "organization": "...",
+      "start": "2021",
+      "end": "2024",
+      "description": "..."
+    }
+  ],
+  "projects": [
+    {
+      "name": "...",
+      "description": "...",
+      "stack": ["...", "..."],
+      "url": "https://github.com/..."
+    }
+  ],
   "education": [
     { "name": "...", "badge": true, "loader": "<credly-badge-id>" }
   ],
-  "skills": ["..."]
+  "skills": [
+    { "category": "...", "items": ["...", "..."] }
+  ]
 }
 ```
 
 For education entries with a Credly badge, set `"badge": true` and put the badge UUID in `"loader"`.
+
+`experience` entries render as a timeline, ordered as listed in the file (most recent first). Use `"end": "Present"` for an ongoing role. `projects` render as cards linking out to `url`. `skills` are grouped by `category` and rendered as a matrix of panels.
 
 ---
 
