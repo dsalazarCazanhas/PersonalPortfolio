@@ -4,9 +4,9 @@
 ![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&logo=typescript&logoColor=white)
 ![Vite](https://img.shields.io/badge/Vite-646CFF?style=flat-square&logo=vite&logoColor=white)
 ![TailwindCSS](https://img.shields.io/badge/Tailwind_CSS-06B6D4?style=flat-square&logo=tailwindcss&logoColor=white)
-![Docker](https://img.shields.io/badge/Docker-2496ED?style=flat-square&logo=docker&logoColor=white)
+![GitHub Pages](https://img.shields.io/badge/GitHub_Pages-222222?style=flat-square&logo=githubpages&logoColor=white)
 
-Personal CV/portfolio site built with React, TypeScript, and Vite. Content is loaded from a local static JSON file. Deployed via Docker + Nginx with a self-hosted GitHub Actions runner.
+Personal CV/portfolio site built with React, TypeScript, and Vite. Content is loaded from a local static JSON file. Deployed to [GitHub Pages](https://dsalazarcazanhas.github.io/PersonalPortfolio/) via GitHub Actions.
 
 ---
 
@@ -19,9 +19,8 @@ Personal CV/portfolio site built with React, TypeScript, and Vite. Content is lo
 | Styling | Tailwind CSS, shadcn/ui (Radix UI) |
 | Routing | Wouter |
 | Content | Static JSON (`client/statics/content.json`) |
-| Container | Docker multi-stage → Nginx |
-| CI/CD | GitHub Actions (self-hosted runner) |
-| Tunnel | ngrok |
+| Hosting | GitHub Pages |
+| CI/CD | GitHub Actions |
 
 ---
 
@@ -38,12 +37,10 @@ Personal CV/portfolio site built with React, TypeScript, and Vite. Content is lo
 │   │   └── App.tsx
 │   └── statics/
 │       └── content.json      # CV data (edit here to update content)
-├── Dockerfile                # Multi-stage: pnpm build → Nginx
-├── docker-compose.yaml       # App + ngrok services
 ├── vite.config.ts
 └── .github/
     └── workflows/
-        └── deploy.yaml       # CI/CD pipeline
+        └── deploy.yml         # CI/CD pipeline (build + deploy to GitHub Pages)
 ```
 
 ---
@@ -71,14 +68,6 @@ pnpm build
 ```
 
 Output goes to `dist/`.
-
-### Docker
-
-```bash
-docker compose up --build
-```
-
-Serves the app on port `8090` via Nginx.
 
 ---
 
@@ -126,9 +115,8 @@ For education entries with a Credly badge, set `"badge": true` and put the badge
 
 ## CI/CD
 
-On every push to `main`, the workflow in [`.github/workflows/deploy.yaml`](.github/workflows/deploy.yaml):
+On every push to `main`, the workflow in [`.github/workflows/deploy.yml`](.github/workflows/deploy.yml):
 
-1. Checks out the code on a **self-hosted runner**
-2. Builds the Vite app
-3. Builds a Docker image tagged with the current timestamp
-4. Replaces the running `procv-nginx` container in the `majula` Docker network
+1. Checks out the code on a GitHub-hosted runner
+2. Installs dependencies with pnpm and builds the Vite app
+3. Uploads `dist/` as a Pages artifact and deploys it to [GitHub Pages](https://dsalazarcazanhas.github.io/PersonalPortfolio/)
