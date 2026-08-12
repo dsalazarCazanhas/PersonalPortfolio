@@ -1,6 +1,7 @@
 .DS_Store
 server/public
 vite.config.ts.*
+.mcp.json
 *.tar.gz
 .env
 
